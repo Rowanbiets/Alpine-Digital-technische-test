@@ -14,22 +14,18 @@ use App\Http\Controllers\MountainController;
 |
 */
 
-// ---------------------- AUTHENTICATIE ----------------------
-// Registratie
+// ---------------------- AUTH ----------------------
 Route::post('register', [AuthController::class, 'register']);
-
-// Login
 Route::post('login', [AuthController::class, 'login']);
 
-// Logout (alleen voor ingelogde gebruikers)
-Route::middleware('auth:sanctum')->post('logout', [AuthController::class, 'logout']);
+// Middleware "auth" kan je later toevoegen
+Route::middleware('auth.simple')->group(function () {
+    Route::post('logout', [AuthController::class, 'logout']);
 
-// ---------------------- BERGEN CRUD ----------------------
-// Alles onder auth middleware
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('mountains', [MountainController::class, 'index']); // Alle bergen
-    Route::get('mountains/{id}', [MountainController::class, 'show']); // Detail
-    Route::post('mountains', [MountainController::class, 'store']); // Nieuwe berg
-    Route::put('mountains/{id}', [MountainController::class, 'update']); // Bewerken
-    Route::delete('mountains/{id}', [MountainController::class, 'destroy']); // Verwijderen
+    // ---------------------- BERGEN CRUD ----------------------
+    Route::get('mountains', [MountainController::class, 'index']);
+    Route::get('mountains/{id}', [MountainController::class, 'show']);
+    Route::post('mountains', [MountainController::class, 'store']);
+    Route::put('mountains/{id}', [MountainController::class, 'update']);
+    Route::delete('mountains/{id}', [MountainController::class, 'destroy']);
 });
