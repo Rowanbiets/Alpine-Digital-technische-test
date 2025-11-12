@@ -1,0 +1,15 @@
+<h2>Mountains</h2>
+
+<div>
+  <input [(ngModel)]="name" placeholder="Name">
+  <input [(ngModel)]="location" placeholder="Location">
+  <input [(ngModel)]="height" type="number" placeholder="Height">
+  <button (click)="addMountain()">Add Mountain</button>
+</div>
+
+<ul>
+  <li *ngFor="let mountain of mountains">
+    {{ mountain.name }} - {{ mountain.location }} - {{ mountain.height }}m
+    <button (click)="deleteMountain(mountain.id)">Delete</button>
+  </li>
+</ul>
