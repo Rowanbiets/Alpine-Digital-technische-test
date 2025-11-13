@@ -1,8 +1,8 @@
 # Alpine Mountains - Technische Test
 
 **Project:** Sollicitatie – Technische test PHP/Angular  
-**Auteur:** [Jouw Naam]  
-**Duur:** [Aantal uren dat je eraan gewerkt hebt]  
+**Auteur:** Rowan Biets 
+**Duur:** +-8u.
 
 ## Overzicht
 
