@@ -1,29 +1,31 @@
 // src/app/components/login/login.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { ApiService } from '../../services/api';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './login.html',
+  styleUrls: ['./login.css'],
 })
 export class LoginComponent {
   email = '';
   password = '';
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(private api: ApiService) {}
 
+  // Hier voeg je de functie toe die je template aanroept
   login() {
     this.api.login({ email: this.email, password: this.password }).subscribe({
-      next: (res: any) => {
-        this.api.setToken(res.token); // token opslaan
-        this.router.navigate(['/mountains']);
+      next: (res) => {
+        this.api.setToken(res.token); // sla token op
+        console.log('Logged in!', res);
       },
-      error: (err) => console.error(err)
+      error: (err) => {
+        console.error('Login failed', err);
+      },
     });
   }
 }

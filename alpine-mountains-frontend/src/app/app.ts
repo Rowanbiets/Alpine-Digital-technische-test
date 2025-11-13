@@ -1,15 +1,15 @@
 // src/app/app.ts
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router'; // <-- import toevoegen
+import { NavbarComponent } from './components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
-  templateUrl: './app.html',
-  styleUrls: ['./app.css'],
+  imports: [NavbarComponent, RouterOutlet], // <-- RouterOutlet hier toevoegen
+  template: `
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent {
-  protected readonly title = signal('alpine-mountains-frontend');
-}
+export class AppComponent {}

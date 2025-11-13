@@ -1,0 +1,112 @@
+/* Main container */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Card for form */
+.card {
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* Form labels and inputs */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+form input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Form button */
+form button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Mountains list */
+.mountains-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mountains-list li {
+  background-color: #f9f9f9;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Mountain info */
+.mountains-list li span {
+  font-weight: 500;
+}
+
+/* Edit and Delete buttons */
+.mountains-list li button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+.mountains-list li button.primary {
+  background-color: #28a745;
+}
+
+.mountains-list li button.primary:hover {
+  background-color: #1e7e34;
+}
+
+.mountains-list li button.danger {
+  background-color: #dc3545;
+}
+
+.mountains-list li button.danger:hover {
+  background-color: #a71d2a;
+}
+
+/* Dashboard title */
+.card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #2c3e50;
+  text-align: center;
+}

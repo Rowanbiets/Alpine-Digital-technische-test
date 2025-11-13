@@ -1,30 +1,30 @@
 // src/app/components/register/register.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { ApiService } from '../../services/api';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './register.html',
+  styleUrls: ['./register.css'], 
 })
+
 export class RegisterComponent {
   name = '';
   email = '';
   password = '';
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(private api: ApiService) {}
 
   register() {
     this.api.register({ name: this.name, email: this.email, password: this.password }).subscribe({
-      next: (res: any) => {
+      next: (res) => {
         this.api.setToken(res.token);
-        this.router.navigate(['/mountains']);
+        console.log('Registered!', res);
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error('Registration failed', err),
     });
   }
 }

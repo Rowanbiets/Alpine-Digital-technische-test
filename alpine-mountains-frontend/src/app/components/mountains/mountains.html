@@ -1,15 +1,28 @@
-<h2>Mountains</h2>
+<div class="container">
+  <div class="card">
+    <h2>Mountain Dashboard</h2>
+    <form>
+  <label>Name</label>
+  <input type="text" [(ngModel)]="name" name="name" />
+  
+  <label>Location</label>
+  <input type="text" [(ngModel)]="location" name="location" />
 
-<div>
-  <input [(ngModel)]="name" placeholder="Name">
-  <input [(ngModel)]="location" placeholder="Location">
-  <input [(ngModel)]="height" type="number" placeholder="Height">
-  <button (click)="addMountain()">Add Mountain</button>
+  <label>Height</label>
+  <input type="number" [(ngModel)]="height" name="height" />
+
+  <button type="button" (click)="submit()">{{ editingId ? 'Update' : 'Add' }}</button>
+</form>
+
+  </div>
+
+  <ul class="mountains-list">
+    <li *ngFor="let mountain of mountains">
+      <span>{{ mountain.name }} — {{ mountain.location }} — {{ mountain.height }} m</span>
+      <div>
+        <button class="primary" (click)="edit(mountain)">Edit</button>
+        <button class="danger" (click)="delete(mountain.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
 </div>
-
-<ul>
-  <li *ngFor="let mountain of mountains">
-    {{ mountain.name }} - {{ mountain.location }} - {{ mountain.height }}m
-    <button (click)="deleteMountain(mountain.id)">Delete</button>
-  </li>
-</ul>

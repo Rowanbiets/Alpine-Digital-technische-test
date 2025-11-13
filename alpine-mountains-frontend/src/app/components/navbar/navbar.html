@@ -1,0 +1,10 @@
+<!-- src/app/components/navbar/navbar.html -->
+<nav class="navbar">
+  <div class="logo">Alpine Mountains</div>
+  <div class="links">
+    <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+    <a *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+    <a *ngIf="!isLoggedIn()" routerLink="/register">Register</a>
+    <a *ngIf="isLoggedIn()" routerLink="/mountains">Dashboard</a>
+  </div>
+</nav>
